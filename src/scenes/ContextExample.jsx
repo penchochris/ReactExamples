@@ -2,10 +2,8 @@ import React, {Component} from 'react';
 
 import { withNameProvider } from '../context/nameContext';
 
-import Text from '../components/Text';
-import Form from '../components/Form';
-
-const Presentation = () => <Text/>
+import Presentation from '../components/ContextExample/Presentation';
+import Form from '../components/ContextExample/Form';
 
 class ContextExample extends Component {
   render() {

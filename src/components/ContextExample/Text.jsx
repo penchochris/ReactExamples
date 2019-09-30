@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withNameConsumer } from "../context/nameContext";
+import { withNameConsumer } from "../../context/nameContext";
 
 class Text extends Component {
   render() {

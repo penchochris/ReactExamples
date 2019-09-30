@@ -5,12 +5,11 @@ const api = url => fetch(url).then(res => res.json());
 
 export function* fetchName() {
   try {
-    const randomName = Math.floor(Math.random() * 10) + 1;
-    const values = yield call(api, `https://jsonplaceholder.typicode.com/users/${randomName}`);
-    yield put({ type: TYPES.SET_NAME, values });
+    const randomId = Math.floor(Math.random() * 10) + 1;
+    const values = yield call(api, `https://jsonplaceholder.typicode.com/users/${randomId}`);
+    yield put({ type: TYPES.SET_NAME_SAGA_SUCCESS, name: values.name });
   } catch (e) {
-    console.log('error fetching')
-    console.log(e);
+    yield put({ type: TYPES.SET_NAME_SAGA_FAILURE });
   }
 }
 

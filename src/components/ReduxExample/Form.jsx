@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import { withNameConsumer } from "../context/nameContext";
-import {Formik} from "formik";
+import { Formik } from "formik";
+import { connect } from "react-redux";
+import { setName } from "../../actions/nameActions";
 
 class Form extends Component {
   render() {
+    const { onSubmit } = this.props;
     return (
       <Formik
         initialValues={{ name: '' }}
-        onSubmit={values => this.props.setContext(values)}
+        onSubmit={onSubmit}
       >
         {props => {
           const {
@@ -17,7 +19,7 @@ class Form extends Component {
           } = props;
           return (
             <form onSubmit={handleSubmit}>
-              <label htmlFor="email" style={{ display: 'block' }}>
+              <label htmlFor="name" style={{ display: 'block' }}>
                 Nombre:
               </label>
               <input
@@ -27,6 +29,7 @@ class Form extends Component {
                 value={values.name}
                 onChange={handleChange}
               />
+
               <button type="submit">
                 Submit
               </button>
@@ -38,4 +41,15 @@ class Form extends Component {
   }
 }
 
-export default withNameConsumer(Form);
+const mapStateToProps = state => ({
+  name: state.name,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onSubmit: values => dispatch(setName(values.name)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Form);
