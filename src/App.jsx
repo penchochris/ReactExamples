@@ -4,7 +4,8 @@ import ContextExample from './scenes/ContextExample';
 import ContentHooksExample from './scenes/ContextHooksExample';
 import ReduxExample from './scenes/ReduxExample';
 import ReduxHooksExample from './scenes/ReduxHooksExample';
-import {FormProvider} from "./context/formContext";
+import ReduxSagaExample from './scenes/ReduxSagaExample';
+import {FormProvider} from "./context/nameContext";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <ContentHooksExample/>
       <ReduxExample/>
       <ReduxHooksExample/>
+      <ReduxSagaExample/>
     </>
   );
 };

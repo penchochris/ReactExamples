@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withFormConsumer } from "../context/formContext";
+import { withNameConsumer } from "../context/nameContext";
 
 class Text extends Component {
   render() {
@@ -9,4 +9,4 @@ class Text extends Component {
   }
 }
 
-export default withFormConsumer(Text);
+export default withNameConsumer(Text);

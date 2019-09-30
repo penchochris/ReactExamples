@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Formik } from 'formik';
 
-import { FormContext, withFormProvider } from '../context/formContext';
+import { NameContext, withNameProvider } from '../context/nameContext';
 
 const FormName = () => {
-  const { setContext } = useContext(FormContext);
+  const { setContext } = useContext(NameContext);
 
   return (
     <Formik
@@ -41,7 +41,7 @@ const FormName = () => {
 };
 
 const Text = () => {
-  const { context } = useContext(FormContext);
+  const { context } = useContext(NameContext);
   return <p>Hola, soy {context.name}</p>;
 };
 
@@ -54,4 +54,4 @@ const ContextHooksExample = () =>
     <FormName/>
   </>
 
-export default withFormProvider(ContextHooksExample);
+export default withNameProvider(ContextHooksExample);

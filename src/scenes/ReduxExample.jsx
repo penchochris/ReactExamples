@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect, Provider } from 'react-redux';
 import { Formik } from 'formik';
-import { setName } from "../actions/formActions";
+import { setName } from "../actions/nameActions";
 import { Store } from "../store/store";
 
 class Text extends Component {

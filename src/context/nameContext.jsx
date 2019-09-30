@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-export const FormContext = React.createContext();
-export const FormConsumer = FormContext.Consumer;
+export const NameContext = React.createContext();
+export const NameConsumer = NameContext.Consumer;
 
-const Provider = FormContext.Provider;
+const Provider = NameContext.Provider;
 
-const FormProvider = ({ children }) => {
+const NameProvider = ({ children }) => {
   const [context, setContext] = useState({
     name: 'Chris',
   });
@@ -17,22 +17,22 @@ const FormProvider = ({ children }) => {
   )
 };
 
-export const withFormProvider = Component =>
+export const withNameProvider = Component =>
   function WrapperComponent() {
     return (
-      <FormProvider>
+      <NameProvider>
         <Component/>
-      </FormProvider>
+      </NameProvider>
     );
   };
 
-export const withFormConsumer = Component =>
+export const withNameConsumer = Component =>
   function WrapperComponent() {
     return (
-      <FormConsumer>
+      <NameConsumer>
         { ({ context, setContext }) =>
           <Component context={context} setContext={setContext}/>
         }
-      </FormConsumer>
+      </NameConsumer>
     )
   }

@@ -1,7 +1,7 @@
 import React  from 'react';
 import { useSelector, useDispatch, Provider } from 'react-redux';
 import { Formik } from 'formik';
-import { setName } from "../actions/formActions";
+import { setName } from "../actions/nameActions";
 import { Store } from "../store/store";
 
 const Text = () => {

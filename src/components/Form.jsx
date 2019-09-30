@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withFormConsumer } from "../context/formContext";
+import { withNameConsumer } from "../context/nameContext";
 import {Formik} from "formik";
 
 class Form extends Component {
@@ -38,4 +38,4 @@ class Form extends Component {
   }
 }
 
-export default withFormConsumer(Form);
+export default withNameConsumer(Form);

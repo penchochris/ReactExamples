@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import { withFormProvider} from '../context/formContext';
+import { withNameProvider } from '../context/nameContext';
 
 import Text from '../components/Text';
 import Form from '../components/Form';
@@ -19,4 +19,4 @@ class ContextExample extends Component {
   }
 }
 
-export default withFormProvider(ContextExample);
+export default withNameProvider(ContextExample);
