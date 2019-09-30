@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Formik } from "formik";
-import { connect } from "react-redux";
-import { setName } from "../../actions/nameActions";
+import React, { Component } from 'react';
+import { Formik } from 'formik';
+import { connect } from 'react-redux';
+import { setName } from '../../actions/nameActions';
 
 class Form extends Component {
   render() {

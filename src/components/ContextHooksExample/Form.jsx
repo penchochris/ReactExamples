@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { NameContext } from "../../context/nameContext";
-import { Formik } from "formik";
+import React, { useContext } from 'react';
+import { NameContext } from '../../context/nameContext';
+import { Formik } from 'formik';
 
 const Form = () => {
   const { setContext } = useContext(NameContext);

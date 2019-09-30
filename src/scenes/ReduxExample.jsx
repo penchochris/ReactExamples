@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Provider } from 'react-redux';
-import { Store } from "../store/store";
+import { Store } from '../store/store';
 
-import Form from "../components/ReduxExample/Form";
+import Form from '../components/ReduxExample/Form';
 import Presentation from '../components/ReduxExample/Presentation'
 
 class ReduxExample extends Component {

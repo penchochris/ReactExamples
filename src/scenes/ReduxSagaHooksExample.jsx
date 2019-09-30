@@ -1,9 +1,9 @@
 import React  from 'react';
 import { Provider } from 'react-redux';
-import { Store } from "../store/store";
+import { Store } from '../store/store';
 
 import Presentation from '../components/ReduxHooksExample/Presentation';
-import Button from '../components/ReduxSagaHooksExample/Button';
+import DialogButton from '../components/ReduxSagaHooksExample/DialogButton';
 
 
 const ReduxSagaExample = () => {
@@ -11,7 +11,7 @@ const ReduxSagaExample = () => {
     <Provider store={Store}>
       <h1>Redux Saga with Hooks</h1>
       <Presentation/>
-      <Button/>
+      <DialogButton/>
     </Provider>
   );
 }

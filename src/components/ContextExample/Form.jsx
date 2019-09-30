@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { withNameConsumer } from "../../context/nameContext";
-import {Formik} from "formik";
+import React, { Component } from 'react';
+import { withNameConsumer } from '../../context/nameContext';
+import {Formik} from 'formik';
 
 class Form extends Component {
   render() {

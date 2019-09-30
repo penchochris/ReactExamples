@@ -1,8 +1,8 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { Formik } from "formik";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Formik } from 'formik';
 
-import { setName } from "../../actions/nameActions";
+import { setName } from '../../actions/nameActions';
 
 const Form = () => {
   const dispatch = useDispatch();
