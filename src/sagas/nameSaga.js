@@ -1,6 +1,11 @@
 import { call, put, take, takeLatest } from 'redux-saga/effects';
 import { TYPES } from '../consts';
 
+import { setSnackbar } from '../actions/snackbarActions';
+import { setName } from '../actions/userActions'
+
+import { importNameError} from '../components/Default/Snackbars/snackbars';
+
 const api = url => fetch(url).then(res => res.json());
 
 export function* fetchName() {
@@ -11,9 +16,9 @@ export function* fetchName() {
     const randomId = Math.floor(Math.random() * 10) + 1;
     const values = yield call(api, `https://jsonplaceholder.typicode.com/users/${randomId}`);
 
-    yield put({ type: TYPES.SET_NAME_SAGA_SUCCESS, name: values.name });
+    yield put(setName(values.name));
   } catch (e) {
-    yield put({ type: TYPES.SET_NAME_SAGA_FAILURE });
+    yield put(setSnackbar(importNameError));
   }
 }
 

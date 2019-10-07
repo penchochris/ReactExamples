@@ -1,0 +1,1 @@
+export const importNameError = { variant: 'error', message: 'Error importando nombre aleatorio.', open: true };

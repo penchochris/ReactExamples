@@ -1,20 +1,18 @@
 import { TYPES } from '../consts';
+import { setSome, setOne } from "./reducerHelper";
 
 const initialState = {
-  open: true,
-  variant: 'error',
-  message: 'En tus muertos me cago!'
+  open: false,
+  variant: '',
+  message: ''
 };
 
 export const snackbarReducer = (state = initialState, action) => {
-
-  const getState = key => ({
-    ...state,
-    [key]: action[key]
-  });
-
   const states = {
-    [TYPES.SET_SNACKBAR_OPEN]: getState('open'),
+    [TYPES.SET_SNACKBAR_OPEN]: setOne('open', state, action),
+    [TYPES.SET_SNACKBAR_MESSAGE]: setOne('message', state, action),
+    [TYPES.SET_SNACKBAR_VARIANT]: setOne('variant', state, action),
+    [TYPES.SET_SNACKBAR]: setSome(action.snackbar, state),
   };
 
   return states[action.type] || state;
