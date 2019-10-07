@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { setNameSaga, setConfirmationSaga } from '../../actions/userActions'
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -8,20 +9,17 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-import { TYPES } from '../../consts';
-
-
 const DialogButton = () => {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
 
   const handleClickOpen = () => {
-    dispatch({ type: TYPES.SET_NAME_SAGA_REQUEST });
+    dispatch(setNameSaga());
     setOpen(true);
   };
 
   const handleAccept = () => {
-    dispatch({ type: TYPES.SET_NAME_SAGA_CONFIRM });
+    dispatch(setConfirmationSaga());
     setOpen(false);
   };
 

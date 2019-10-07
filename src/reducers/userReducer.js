@@ -1,7 +1,10 @@
 import { TYPES } from '../consts';
 
-export const nameReducer = (state = {}, action) => {
+const initialState = {
+    name: 'Chris'
+};
 
+export const userReducer = (state = initialState, action) => {
   const getState = key => ({
     ...state,
     [key]: action[key]

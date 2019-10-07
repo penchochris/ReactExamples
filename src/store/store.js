@@ -1,11 +1,14 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import { nameReducer } from '../reducers/nameReducer';
+import reducers from '../reducers';
 import nameSaga from '../sagas/nameSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const Store = createStore(nameReducer, { name: 'Chris'}, applyMiddleware(sagaMiddleware));
+export const Store = createStore(reducers, compose(
+  applyMiddleware(sagaMiddleware),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+));
 
 sagaMiddleware.run(nameSaga);

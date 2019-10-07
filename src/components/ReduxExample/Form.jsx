@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 import { connect } from 'react-redux';
-import { setName } from '../../actions/nameActions';
+import { setName } from '../../actions/userActions';
 
 class Form extends Component {
   render() {
@@ -42,7 +42,7 @@ class Form extends Component {
 }
 
 const mapStateToProps = state => ({
-  name: state.name,
+  name: state.user.name,
 });
 
 const mapDispatchToProps = dispatch => ({

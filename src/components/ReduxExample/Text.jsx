@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { setName } from '../../actions/nameActions';
+import { setName } from '../../actions/userActions';
 
 class Text extends Component {
   render() {
@@ -12,7 +12,7 @@ class Text extends Component {
 }
 
 const mapStateToProps = state => ({
-  name: state.name,
+  name: state.user.name,
 });
 
 const mapDispatchToProps = dispatch => ({
