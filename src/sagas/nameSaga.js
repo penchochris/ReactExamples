@@ -1,10 +1,8 @@
 import { call, put, take, takeLatest } from 'redux-saga/effects';
-import { TYPES } from '../consts';
+import { TYPES, SNACKBARS } from '../consts';
 
 import { setSnackbar } from '../actions/snackbarActions';
 import { setName } from '../actions/userActions'
-
-import { importNameError} from '../components/Default/Snackbars/snackbars';
 
 const api = url => fetch(url).then(res => res.json());
 
@@ -17,8 +15,9 @@ export function* fetchName() {
     const values = yield call(api, `https://jsonplaceholder.typicode.com/users/${randomId}`);
 
     yield put(setName(values.name));
+    yield put(setSnackbar(SNACKBARS.IMPORT_NAME_ERROR));
   } catch (e) {
-    yield put(setSnackbar(importNameError));
+    yield put(setSnackbar(SNACKBARS.IMPORT_NAME_ERROR));
   }
 }
 

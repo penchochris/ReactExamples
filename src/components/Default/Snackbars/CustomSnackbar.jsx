@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSnackbarOpen } from '../../../actions/snackbarActions';
+import { closeSnackbar } from '../../../actions/snackbarActions';
 
 import Snackbar from '@material-ui/core/Snackbar';
-import SnackbarContentWrapper from './components/SnackbarContentWrapper';
+import SnackbarContentWrapperv1 from './components/SnackbarContentWrapperv1';
 
 const CustomSnackbar = () => {
   const { open } = useSelector(state => state.snackbar);
@@ -14,11 +14,12 @@ const CustomSnackbar = () => {
       return;
     }
 
-    dispatch(setSnackbarOpen(false));
+    dispatch(closeSnackbar());
   };
 
   return (
-    <div>
+    open &&
+    <>
       <Snackbar
         anchorOrigin={{
           vertical: 'top',
@@ -28,11 +29,11 @@ const CustomSnackbar = () => {
         autoHideDuration={6000}
         onClose={handleClose}
       >
-        <SnackbarContentWrapper
+        <SnackbarContentWrapperv1
           onClose={handleClose}
         />
       </Snackbar>
-    </div>
+    </>
   );
 }
 
