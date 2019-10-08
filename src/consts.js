@@ -10,5 +10,6 @@ export const TYPES = {
 };
 
 export const SNACKBARS = {
-  IMPORT_NAME_ERROR: { variant: 'error', message: 'Error importando nombre aleatorio.', open: true }
+  IMPORT_NAME_ERROR: { variant: 'error', message: 'Error importando nombre aleatorio.', open: true },
+  IMPORT_NAME_SUCCESS: { variant: 'success', message: 'El nombre ha sido importado correctamente.', open: true }
 };

@@ -15,7 +15,7 @@ export function* fetchName() {
     const values = yield call(api, `https://jsonplaceholder.typicode.com/users/${randomId}`);
 
     yield put(setName(values.name));
-    yield put(setSnackbar(SNACKBARS.IMPORT_NAME_ERROR));
+    yield put(setSnackbar(SNACKBARS.IMPORT_NAME_SUCCESS));
   } catch (e) {
     yield put(setSnackbar(SNACKBARS.IMPORT_NAME_ERROR));
   }
