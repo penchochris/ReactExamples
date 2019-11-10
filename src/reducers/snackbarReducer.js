@@ -1,5 +1,5 @@
 import { TYPES } from '../consts';
-import { setSome } from './reducerHelper';
+import { setSome, setOne } from './reducerHelper';
 
 const initialState = {
   open: false,
@@ -9,7 +9,7 @@ const initialState = {
 
 export const snackbarReducer = (state = initialState, action) => {
   const states = {
-    [TYPES.SET_SNACKBAR_CLOSE]: setSome(initialState, state),
+    [TYPES.SET_SNACKBAR_OPEN]: setOne('open', state, action),
     [TYPES.SET_SNACKBAR]: setSome(action.snackbar, state),
   };
 

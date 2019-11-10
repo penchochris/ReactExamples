@@ -4,7 +4,7 @@ import { Store } from '../store/store';
 
 import Presentation from '../components/ReduxHooksExample/Presentation';
 import DialogButton from '../components/ReduxSagaHooksExample/DialogButton';
-import CustomSnackbar from '../components/Default/Snackbars/CustomSnackbar';
+import CustomSnackbar from '../components/Default/Snackbar/CustomSnackbar';
 
 const ReduxSagaExample = () => {
   return (

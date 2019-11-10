@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import clsx from 'clsx';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ErrorIcon from '@material-ui/icons/Error';
 import InfoIcon from '@material-ui/icons/Info';
@@ -8,9 +9,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import WarningIcon from '@material-ui/icons/Warning';
-
-import styled from 'styled-components';
-import {StyledMessage} from "./StyledSnackbarComponents";
+import { makeStyles } from '@material-ui/core/styles';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -19,43 +18,51 @@ const variantIcon = {
   info: InfoIcon,
 };
 
-const backgroundColors = {
-  success: 'green',
-  error: 'red',
-  info: 'blue',
-  warning: 'orange',
-};
-
-const StyledSnackbarContent = styled(SnackbarContent)`
-  && {
-    ${ props => props.variantbg && `background: ${backgroundColors[props.variantbg]}` };
-  }
-`;
-
-const StyledSpan = styled.span`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-`;
+const useStyles = makeStyles(theme => ({
+  success: {
+    backgroundColor: 'green'
+  },
+  error: {
+    backgroundColor: 'red',
+  },
+  info: {
+    backgroundColor: 'blue',
+  },
+  warning: {
+    backgroundColor: 'orange',
+  },
+  icon: {
+    fontSize: 20,
+  },
+  iconVariant: {
+    opacity: 0.9,
+    marginRight: theme.spacing(),
+  },
+  message: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+}));
 
 const SnackbarContentWrapper = props => {
+  const classes = useStyles();
   const { onClose } = props;
   const { variant, message } = useSelector(state => state.snackbar);
   const Icon = variantIcon[variant];
 
   return (
-    <StyledSnackbarContent
-      variantbg={variant}
+    <SnackbarContent
+      className={classes[variant]}
       message={
-        <StyledSpan>
-          <Icon/>
-          <StyledMessage>{message}</StyledMessage>
-        </StyledSpan>
+        <span className={classes.message}>
+          <Icon className={clsx(classes.icon, classes.iconVariant)} />
+          {message}
+        </span>
       }
       action={[
         <IconButton key="close" color="inherit" onClick={onClose}>
-          <CloseIcon/>
-        </IconButton>,
+          <CloseIcon className={classes.icon} />
+        </IconButton>
       ]}
     />
   );

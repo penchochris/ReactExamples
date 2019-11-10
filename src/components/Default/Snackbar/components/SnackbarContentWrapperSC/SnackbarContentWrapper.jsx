@@ -6,9 +6,9 @@ import ErrorIcon from '@material-ui/icons/Error';
 import InfoIcon from '@material-ui/icons/Info';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
 import WarningIcon from '@material-ui/icons/Warning';
-import { makeStyles } from '@material-ui/core/styles';
+
+import { StyledMessage, StyledSnackbarContent, StyledSpan } from "./StyledSnackbarComponents";
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -17,48 +17,23 @@ const variantIcon = {
   info: InfoIcon,
 };
 
-const useStyles = makeStyles(theme => ({
-  success: {
-    backgroundColor: 'green'
-  },
-  error: {
-    backgroundColor: 'red',
-  },
-  info: {
-    backgroundColor: 'blue',
-  },
-  warning: {
-    backgroundColor: 'orange',
-  },
-  icon: {
-    fontSize: 20,
-    opacity: 0.9,
-    marginRight: theme.spacing(),
-  },
-  message: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-}));
-
 const SnackbarContentWrapper = props => {
-  const classes = useStyles();
   const { onClose } = props;
   const { variant, message } = useSelector(state => state.snackbar);
   const Icon = variantIcon[variant];
 
   return (
-    <SnackbarContent
-      className={classes[variant]}
+    <StyledSnackbarContent
+      background={variant}
       message={
-        <span className={classes.message}>
-          <Icon className={classes.icon} />
-          {message}
-        </span>
+        <StyledSpan>
+          <Icon/>
+          <StyledMessage>{message}</StyledMessage>
+        </StyledSpan>
       }
       action={[
         <IconButton key="close" color="inherit" onClick={onClose}>
-          <CloseIcon className={classes.icon} />
+          <CloseIcon/>
         </IconButton>,
       ]}
     />
